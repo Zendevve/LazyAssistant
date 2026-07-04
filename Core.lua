@@ -90,7 +90,7 @@ e:SetScript("OnEvent", function(self, event, arg1)
                     if pct <= 0.20 then
                         if not killShotAlerted then
                             killShotAlerted = true
-                            TriggerAlert("|cffff0000>>> USE EXECUTE (SHIFT) <<<|r")
+                            TriggerAlert("|cffff0000>>> USE EXECUTE (ALT) <<<|r")
                             PlaySoundFile("Sound\\Spells\\RaidWarning.wav")
                         end
                     elseif pct <= 0.25 then
@@ -106,7 +106,7 @@ e:SetScript("OnEvent", function(self, event, arg1)
                     if pct <= 0.35 then
                         if not killShotAlerted then
                             killShotAlerted = true
-                            TriggerAlert("|cffffff00>>> USE HAMMER OF WRATH (CTRL) <<<|r")
+                            TriggerAlert("|cffffff00>>> USE HAMMER OF WRATH (ALT) <<<|r")
                             PlaySoundFile("Sound\\Spells\\RaidWarning.wav")
                         end
                     elseif pct <= 0.40 then

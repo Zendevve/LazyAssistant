@@ -45,7 +45,7 @@ ns.Templates["WARRIOR"] = {
     [1] = commonStart .. [[
 /cast [nocombat] Charge
 /cast Recklessness
-/cast [mod:shift] Execute; [mod:ctrl] Victory Rush
+/cast [mod:alt, @target, exists, harm] Execute; [mod:shift] Victory Rush
 /castsequence reset=target/combat Rend, Mortal Strike, Overpower, Slam
 /cast Heroic Strike
 ]],
@@ -72,7 +72,8 @@ ns.Templates["WARRIOR"] = {
 ns.Templates["PALADIN"] = {
     [1] = commonStart .. [[
 /cast Avenging Wrath
-/cast [mod:shift] Divine Plea; [mod:ctrl] Hammer of Wrath
+/cast [mod:shift] Divine Plea
+/cast [mod:alt, @target, exists, harm] Hammer of Wrath
 /castsequence reset=8 Judgement of Light, Crusader Strike, Divine Storm, Consecration, Exorcism
 ]],
     [2] = [[
@@ -121,7 +122,7 @@ ns.Templates["PRIEST"] = {
 /targetenemy [noexists][dead]
 /cast [noform] Shadowform
 /cast Power Infusion
-/cast [mod:shift] Shadow Word: Death
+/cast [mod:alt, @target, exists, harm] Shadow Word: Death
 /castsequence reset=target/combat Vampiric Touch, Devouring Plague, Mind Blast, Mind Flay, Mind Flay
 ]],
     [2] = [[
