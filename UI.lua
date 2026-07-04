@@ -15,6 +15,30 @@ local btnLabels = {
     [5] = "BURST"
 }
 
+StaticPopupDialogs["LAZY_SHARE"] = {
+    text = "Copy and share the LazyAssistant GitHub link!\n(Press Ctrl+C to copy)",
+    button1 = "OK",
+    hasEditBox = true,
+    maxLetters = 100,
+    OnShow = function(self)
+        local eb = _G[self:GetName().."EditBox"]
+        if eb then
+            eb:SetText("https://github.com/dantien/LazyAssistant")
+            eb:HighlightText()
+            eb:SetFocus()
+        end
+    end,
+    EditBoxOnEnterPressed = function(self)
+        self:GetParent():Hide()
+    end,
+    EditBoxOnEscapePressed = function(self)
+        self:GetParent():Hide()
+    end,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+}
+
 function ns.UI.Init()
     frame = CreateFrame("Frame", "LazyAssistantGUI", UIParent)
     frame:SetSize(500, 430) -- Taller to fit help text
@@ -57,6 +81,14 @@ function ns.UI.Init()
     helpBtn:SetPoint("TOPRIGHT", -35, -6)
     helpBtn:SetText("?")
     helpBtn:SetScript("OnClick", function() ns.UI.ShowHelp() end)
+
+    local shareBtn = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+    shareBtn:SetSize(55, 20)
+    shareBtn:SetPoint("TOPLEFT", 15, -6)
+    shareBtn:SetText("Share")
+    shareBtn:SetScript("OnClick", function()
+        StaticPopup_Show("LAZY_SHARE")
+    end)
 
     local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
     title:SetPoint("TOP", 0, -12)
